@@ -1,0 +1,39 @@
+*, :before, :after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+    font-family: inherit;
+    color: inherit;
+    text-decoration: none;
+    
+    transition-property: none;
+    transition-duration: .3s;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ttt-container {
+    width: 300px;
+    height: 300px;
+}
+
+.ttt-box {
+    box-shadow: inset 0 0 5px #888;
+}
+
+.ttt-box[data-filled] {
+    background-color: #3D9970;
+}
+
+.ttt-box[data-filled-by="opp"] {
+    background-color: #FF4136;
+}

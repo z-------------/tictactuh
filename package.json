@@ -1,0 +1,8 @@
+{
+  "name": "tictactuh",
+  "version": "0.0.1",
+  "description": "Realtime multiplayer tic-tac-toe",
+  "main": "server.js",
+  "author": "Zack Guard",
+  "license": "MIT"
+}
