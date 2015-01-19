@@ -21,6 +21,10 @@ body {
     align-items: center;
 }
 
+[disabled] {
+    pointer-events: none;
+}
+
 .ttt-container {
     width: 300px;
     height: 300px;

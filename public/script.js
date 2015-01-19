@@ -1,1 +1,1 @@
-ttt.init(document.querySelector(".ttt-container"));
+t.init(document.querySelector(".ttt-container"));
