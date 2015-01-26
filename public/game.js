@@ -34,6 +34,8 @@ t.init = function(container){
         
         t.boxElems.push(box);
     }
+    
+    t.sessionId = new Date().getTime().toString() + Math.round(Math.random() * 10000).toString();
 };
 
 t.enableBoxes = function(dir){
