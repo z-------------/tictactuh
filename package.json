@@ -1,12 +1,16 @@
 {
   "name": "tictactuh",
   "version": "0.0.1",
-  "description": "Realtime multiplayer tic-tac-toe",
+  "description": "Simple realtime multiplayer tic-tac-toe",
   "main": "server.js",
   "author": "Zack Guard",
   "license": "MIT",
   "dependencies": {
     "express": "^4.11.1",
     "socket.io": "^1.3.2"
+  },
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/z-------------/tictactuh.git"
   }
 }
