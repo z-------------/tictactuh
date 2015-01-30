@@ -15,6 +15,8 @@ var games = [];
 
 io.on("connection", function (socket) {
     socket.on("join", function(data){
+        console.log("user connected");
+        
         var nonFullGames = games.filter(function(game){return game.players.length < 2});
         if (nonFullGames.length > 0) {
             var chosenGame = nonFullGames[Math.floor(Math.random() * nonFullGames.length)];
@@ -34,7 +36,40 @@ io.on("connection", function (socket) {
                 gameID: gameObject.id
             });
         }
-        console.log(games);
+        
+        socket.on("fill box", function(data){
+            console.log("user filled box: " + data.boxI);
+            
+            var game = games.filter(function(game){
+                return game.players.indexOf(socket) !== -1;
+            })[0];
+            
+            var opponentSocket = game.players.filter(function(playerSocket){
+                return playerSocket !== socket;
+            })[0];
+            
+            if (opponentSocket) {
+                opponentSocket.emit("fill box", {
+                    boxI: data.boxI
+                });
+            }
+        });
+    });
+    
+    socket.on("disconnect", function(){
+        console.log("user disconnected");
+        
+        games.forEach(function(game, i){
+            if (game.players.indexOf(socket) !== -1) {
+                var opponentSocket = game.players.filter(function(playerSocket){
+                    return playerSocket !== socket;
+                })[0];
+                if (opponentSocket) {
+                    opponentSocket.emit("opp left");
+                }
+                games.splice(i, 1);
+            }
+        });
     });
 });
 
