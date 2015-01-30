@@ -22,7 +22,7 @@ io.on("connection", function (socket) {
             var chosenGame = nonFullGames[Math.floor(Math.random() * nonFullGames.length)];
             chosenGame.players.push(socket);
             
-            socket.emit("join-game", {
+            socket.emit("join game", {
                 gameID: chosenGame.id
             });
         } else {
@@ -32,7 +32,7 @@ io.on("connection", function (socket) {
             };
             games.push(gameObject);
             
-            socket.emit("join-game", {
+            socket.emit("join game", {
                 gameID: gameObject.id
             });
         }

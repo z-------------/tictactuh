@@ -83,7 +83,7 @@ t.gameOver = function(msg){
 t.init(document.querySelector(".ttt-container"));
 
 var socket = io.connect(location.host);
-socket.on("join-game", function(data){
+socket.on("join game", function(data){
     console.log(data.gameID);
 });
 
